@@ -40,6 +40,7 @@
 
 ;; C-x C-f interaction
 (ido-mode 1)
+(setq ido-save-directory-list-file "~/.emacs.local/ido/")
 (require 'ido-vertical-mode); vertical interaction
 (ido-vertical-mode 1)
 ;;(setq ido-vertical-define-keys 'C-n-C-p-up-and-down) ;try without arrow
@@ -50,6 +51,8 @@
 
 ;; ivy - vertical M-x interaction
 (ivy-mode 1)
+;; not close when you delete searchline
+(setq ivy-on-del-error-function nil)
 
 ;; swiper - search interaction
 (require 'swiper)
@@ -59,6 +62,15 @@
 ;; This is your old M-x
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-comma)
 (global-set-key (kbd "M-RET") 'other-window) ;"Alt+Ret" move cursor to next pane
+
+;; C-x k kills buffer without RET command
+(defun kill-current-buffer ()
+  "Kill the current buffer."
+  (interactive)
+  (kill-buffer (current-buffer)))
+(global-set-key (kbd "C-x k") 'kill-current-buffer)
+
+
 
 ;; install not required
 ;; make two buffers with the same file name open distinguishable(not alike)
@@ -83,17 +95,20 @@
 
 ;; highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'highlight "#222")
+(set-face-background 'highlight "#454035") ;"#008b8b") ;"#2f4f4f") ;
+;;(set-face-background 'highlight "#222") ;;;;;
 ;;(set-face-foreground 'highlight "cyan")
 ;;(set-face-underline-p 'highlight t)
 
 ;; 80 character limit for line
 (require 'fill-column-indicator)
 (setq fci-rule-column 80)
-(setq fci-rule-color "cyan")
 
 ;; declare own globalized minor mode
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+(define-globalized-minor-mode global-fci-mode
+  fci-mode (lambda () (fci-mode 1)
+	     (setq fci-rule-color "cyan")
+	     ))
 (global-fci-mode 1)
 
 ;; whitespace, didn't like
@@ -106,6 +121,7 @@
 ;;(darcula-theme)
 
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -115,13 +131,14 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#282c34" "#ff6c6b" "#98be65" "#da8548" "#61afef" "#c678dd" "#1f5582" "#abb2bf"])
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-night)))
  '(custom-safe-themes
    (quote
-    ("51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "d7441a80851d30a369268e50bbad6777a82ff37405f70328f21a8f30a7c6e31d" "8eafb06bf98f69bfb86f0bfcbe773b44b465d234d4b95ed7fa882c99d365ebfd" default)))
+    ("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "51ba4e2db6df909499cd1d85b6be2e543a315b004c67d6f72e0b35b4eb1ef3de" "d7441a80851d30a369268e50bbad6777a82ff37405f70328f21a8f30a7c6e31d" "8eafb06bf98f69bfb86f0bfcbe773b44b465d234d4b95ed7fa882c99d365ebfd" default)))
  '(display-time-24hr-format t)
  '(package-selected-packages
    (quote
-    (diminish ace-window gotham-theme darcula-theme powerline which-key ido-vertical-mode swiper all-the-icons neotree magit projectile aggressive-indent auto-complete fill-column-indicator flycheck smartparens smex))))
+    (htmlize color-theme-sanityinc-tomorrow org-bullets undo-tree diminish ace-window gotham-theme darcula-theme powerline which-key ido-vertical-mode swiper all-the-icons neotree magit projectile aggressive-indent auto-complete fill-column-indicator flycheck smartparens smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

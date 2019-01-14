@@ -3,14 +3,15 @@
 ;; Free for use
 ;; Author: she110ck<admin@she110ck.com>
 ;; Created: 2018-12-16
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; Homepage: https://github.com/She110ck/emacs-configs
 
 ;;; Commentary:
-;; 
+;;
 ;; Actually I don't use Emacs every day, so can't be sure about usability.
+;; Soma parts of my config very popular, but I don't get it yet.
 ;; 
-
+;;
 ;;; Code:
 
 ;; Package manager:
@@ -44,6 +45,9 @@
 			    powerline
 			    which-key
 			    ace-window
+			    undo-tree
+			    color-theme-modern
+			    org-bullets
 			    ))
 
 ;; install packages automatically, elisp
@@ -55,19 +59,17 @@
 
 (setq custom-file "~/.emacs.d/custom-settings.el")
 (load custom-file t)
-
+(load "~/.emacs.d/org-settings.el")
 
 ;; backup changes(tilda files dir)
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
+(setq backup-directory-alist '(("." . "~/.emacs.local/backups")))
 (setq delete-old-versions -1)
 (setq version-control t)
 (setq vc-make-backup-files t)
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)))
+(setq auto-save-file-name-transforms '((".*" "~/.emacs.local/auto-save-list/" t)))
 
-;; history of changes I guess
-(savehist-mode 1)
-(setq history-length t)
-(setq history-delete-duplicates t)
+;; undo like a tree
+(global-undo-tree-mode)
 
 ;; keep open files open across sessions
 ;; (desktop-save-mode 1)
@@ -135,7 +137,7 @@
 
 ;; prettify mode
 (global-prettify-symbols-mode 1)
-
+(show-paren-mode 2)
 
 ;; diminish - hide minor mode names
 (require 'diminish)
@@ -146,7 +148,12 @@
 (diminish 'smartparens-mode "⚖")
 (diminish 'ivy-mode)
 (diminish 'which-key-mode)
-;;; TODO: undo-tree, org
+(diminish 'undo-tree-mode "↺")
+
+;;; TODO: org
+
+
+
 
 
 ;;; .emacs ends here
