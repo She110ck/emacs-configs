@@ -23,6 +23,11 @@
 
 (package-initialize)
 
+
+(add-to-list 'load-path (concat user-emacs-directory "elisp"))
+
+
+
 ;;; TODO list
 
 ;; terminal config
