@@ -1,0 +1,44 @@
+#+STARUP: content indent
+#+TAGS: Home(h) School(s) Computer(c)
+#+TITLE: Emacs demo orgfile
+
+
+* TODO [#A] Check it
+
+** DONE [#A]  snova check it
+  
+*** quoting
+    #+BEGIN_QUOTE
+    Lorem morem drujit budem
+    #+END_QUOTE
+
+    
+
+    
+**** somebadoy
+
+***** sdsd
+el
+
+
+****** 
+
+******* 
+
+******** x
+
+********* 
+
+********** 
+
+*********** 
+
+************ 
+
+************* 
+
+************** 
+
+************** 
+* 
+

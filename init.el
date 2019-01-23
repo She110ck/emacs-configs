@@ -3,7 +3,7 @@
 ;; Free for use
 ;; Author: she110ck<admin@she110ck.com>
 ;; Created: 2018-12-16
-;; Version: 0.1.0
+;; Version: 0.0.4
 ;; Homepage: https://github.com/She110ck/emacs-configs
 
 ;;; Commentary:
@@ -14,80 +14,21 @@
 ;;
 ;;; Code:
 
+
 ;; Produce backtraces when errors occur
 (setq debug-on-error t)
 
-;; Package manager:
-;; Initialise package and add Melpa repository
-(require 'package)
+(add-to-list 'load-path (concat user-emacs-directory "settings"))
 
-;; previues style adding
-;;(add-to-list 'package-archives
-;;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(require 'base)
+(require 'hist-settings)
+(require 'org-settings)
 
-;; adding all repo once
-(add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/")
-	     '("org" . "https://orgmode.org/elpa/"))
+;;(require 'fancy)
 
-(package-initialize)
-
-;; Required package list
-(defvar required-packages '(smartparents
-			    smex
-			    flycheck
-			    auto-complete
-			    aggressive-indent
-			    fill-column-indicator
-			    magit
-			    neotree
-			    swiper
-			    ido-vertical-mode
-			    projectile
-			    all-the-icons
-			    powerline
-			    which-key
-			    ace-window
-			    undo-tree
-			    color-theme-modern
-			    org-bullets
-			    ))
-
-;; install packages automatically, elisp
-;;(dolist (p required-packages)
-;;  (when (not (package-installed-p p))
-;;    (package-refresh-contents)
-;;(package-install p)))
-
-;;(setq custom-file "~/.emacs.d/custom-settings.el")
-;;(load custom-file t)
-(load "~/.emacs.d/org-settings.el")
-
-;; backup changes(tilda files dir)
-(setq backup-directory-alist '(("." . "~/.emacs.local/backups")))
-(setq delete-old-versions -1)
-(setq version-control t)
-(setq vc-make-backup-files t)
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.local/auto-save-list/" t)))
-(setq auto-save-list-file-prefix "~/.emacs.local/auto-save-list/")
-
-;; eshell history file dir
-(setq eshell-history-file-name "~/.emacs.local/eshell-history")
 
 ;; undo like a tree
 (global-undo-tree-mode)
-
-;; keep open files open across sessions
-;; (desktop-save-mode 1)
-
-;; unset emacs suspend key binding
-(global-unset-key (kbd "C-z"))
-
-;; Sentences end with a single space
-(setq sentence-end-double-space nil)
-
-;; when you type marked area replaces
-(delete-selection-mode 1)
 
 ;; smart paired expressions
 (require 'smartparens-config)
@@ -97,7 +38,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-(setq ac-comphist-file "~/.emacs.local/ac-comphist.dat")
+
 (global-auto-complete-mode t)
 (setq ac-auto-start nil) ; if want to use with TAB
 (ac-set-trigger-key "TAB") ; trigger for ac
@@ -112,7 +53,6 @@
 
 ;; bookmark jumps
 (require 'bookmark)
-(setq bookmark-default-file "~/.emacs.local/bookmarks.el")
 
 ;; when emacs started, show bookmark list
 (bookmark-bmenu-list)
@@ -139,49 +79,17 @@
 (require 'aggressive-indent)
 (global-aggressive-indent-mode 1)
 
-;; prettify mode
-(global-prettify-symbols-mode 1)
-(setq show-paren-style 'expression)
-(show-paren-mode 2)
-
 ;; diminish - hide minor mode names
 (require 'diminish)
 (diminish 'eldoc-mode)
 ;; Hide flycheck-mode lighter from mode line
 (diminish 'flycheck-mode)
-(diminish 'auto-complete-mode "↝")
-(diminish 'smartparens-mode "⚖")
-(diminish 'ivy-mode)
-(diminish 'which-key-mode)
-(diminish 'undo-tree-mode "↺")
+(diminish 'auto-complete-mode " ↝")
+(diminish 'smartparens-mode " ⚖")
+(diminish 'ivy-mode nil)
+(diminish 'which-key-mode nil)
+(diminish 'undo-tree-mode " ↺")
 
-
-
-;; Start screen with emacs logo closed
-(setq inhibit-startup-screen 1)
-
-;; in terminal we need only font size. 100/10 = 10pt
-;; (set-face-attribute 'default nil :height 100)
-
-;; font config
-(set-frame-font "Ubuntu Mono-10")
-
-;; change title frame
-(setq frame-title-format '("Epicode"))
-
-;; menu bar, tool bar and scroll bar disabled
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-
-;; clock in mode line
-(display-time-mode 1)
-
-;; display battery mode
-(display-battery-mode 1)
-
-;; show coordinates in mode line
-(column-number-mode 1)
 
 ;; which key
 (require 'which-key)
@@ -193,7 +101,6 @@
 
 ;; C-x C-f interaction
 (ido-mode 1)
-(setq ido-save-directory-list-file "~/.emacs.local/ido/")
 (require 'ido-vertical-mode); vertical interaction
 (ido-vertical-mode 1)
 ;;(setq ido-vertical-define-keys 'C-n-C-p-up-and-down) ;try without arrow
@@ -224,27 +131,10 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 
-
-;; install not required
-;; make two buffers with the same file name open distinguishable(not alike)
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
-
-;; change answer to one key
-(fset 'yes-or-no-p 'y-or-n-p)
-
-;; mini buffer resize allow
-(setq resize-mini-windows t)
-(setq max-mini-window-height 0.33)
-
 ;; powerline
 (require 'powerline)
 (powerline-default-theme)
 (setq powerline-default-separator 'utf-8)
-
-
-;; numerize
-(global-linum-mode 1)
 
 ;; highlight current line
 (global-hl-line-mode 1)
@@ -291,7 +181,7 @@
  '(display-time-24hr-format t)
  '(package-selected-packages
    (quote
-    (htmlize color-theme-sanityinc-tomorrow org-bullets undo-tree diminish ace-window gotham-theme darcula-theme powerline which-key ido-vertical-mode swiper all-the-icons neotree magit projectile aggressive-indent auto-complete fill-column-indicator flycheck smartparens smex))))
+    (nyan-mode htmlize color-theme-sanityinc-tomorrow org-bullets undo-tree diminish ace-window gotham-theme darcula-theme powerline which-key ido-vertical-mode swiper all-the-icons neotree magit projectile aggressive-indent auto-complete fill-column-indicator flycheck smartparens smex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -301,4 +191,4 @@
 
 
 
-;;; .emacs ends here
+;;; init.el ends here

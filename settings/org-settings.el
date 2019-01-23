@@ -21,6 +21,5 @@
 
 (global-set-key (kbd "C-c '") 'org-edit-src-code)
 
-
+(provide 'org-settings)
 ;;; org-settings.el ends here
-
