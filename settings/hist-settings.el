@@ -25,7 +25,7 @@
 (setq bookmark-save-flag t)
 
 ;; ido mode history file
-(setq ido-save-directory-list-file "~/.emacs.local/ido/")
+(setq ido-save-directory-list-file "~/.emacs.local/ido/ido.hist")
 
 (provide 'hist-settings)
 ;;; hist-settings ends here

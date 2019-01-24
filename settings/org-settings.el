@@ -1,8 +1,9 @@
-;;; org-settings.el --- customization for termial -*- lexical-binding: t -*-
+;;; org-settings.el --- org mode customization -*- lexical-binding: t -*-
 
 ;;; Commentary:
 
 ;;; Code:
+
 
 
 (add-hook 'org-mode-hook 'org-indent-mode)

@@ -68,6 +68,8 @@
 
 (setq ring-bell-function 'ignore)
 (setq custom-file (concat user-emacs-directory "settings/custom.el"))
+(load custom-file 'noerror)
+
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
 (when (fboundp 'tool-bar-mode)

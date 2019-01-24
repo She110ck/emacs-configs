@@ -18,5 +18,13 @@
 (global-unset-key (kbd "C-z"))
 
 
+;; whitespace, didn't like
+;;(setq whitespace-style '(trailing lines tab-mark))
+;;(global-whitespace-mode 1)   ; didn't like
+;;(global-whitespace-newline-mode 1)
+
+;;(require 'darcula-theme)
+;;(darcula-theme)
+
 (provide 'fancy)
 ;;; fancy.el ends here
