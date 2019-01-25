@@ -18,7 +18,7 @@
 
 (package-initialize)
 
-;; Required package list
+;; Required package list(needs check)
 (defvar required-packages '(smartparents
 			    smex
 			    flycheck
@@ -67,8 +67,6 @@
 
 
 (setq ring-bell-function 'ignore)
-(setq custom-file (concat user-emacs-directory "settings/custom.el"))
-(load custom-file 'noerror)
 
 ;; Disable toolbar & menubar
 (menu-bar-mode -1)
@@ -117,10 +115,6 @@
 
 ;; keep open files open across sessions
 ;; (desktop-save-mode 1)
-
-
-;;
-
 
 (provide 'base)
 ;;; base.el ends here

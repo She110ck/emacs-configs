@@ -23,7 +23,20 @@
 	     ))
 (global-fci-mode 1)
 
+
+(defun move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2))
+
+(defun move-line-down ()
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1))
+
+(global-set-key (kbd "C-x <up>") 'move-line-up)
+(global-set-key (kbd "C-x <down>") 'move-line-down)
+
 (provide 'functions)
-
-
 ;;; functions.el ends here

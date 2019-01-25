@@ -7,6 +7,10 @@
 ;;;
 ;;; Code:
 
+
+(setq custom-theme-directory (concat user-emacs-directory "themes/"))
+
+
 ;; cool transparency
 (defun toggle-transparency ()
   (interactive)
@@ -26,8 +30,6 @@
 
 ;; you know it
 (global-set-key (kbd "C-c t") 'toggle-transparency)
-
-
 
 
 (provide 'theme-settings)

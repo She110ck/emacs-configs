@@ -17,6 +17,7 @@
 (diminish 'ivy-mode nil)
 (diminish 'which-key-mode nil)
 (diminish 'undo-tree-mode " ↺")
+(diminish 'visual-line-mode nil)
 
 (provide 'init-diminish)
 

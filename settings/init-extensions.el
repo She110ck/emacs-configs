@@ -54,11 +54,7 @@
 (ido-mode 1)
 (require 'ido-vertical-mode); vertical interaction
 (ido-vertical-mode 1)
-;;(setq ido-vertical-define-keys 'C-n-C-p-up-and-down) ;try without arrow
-
-;; M-x interaction
-;;(global-set-key (kbd "M-x") 'smex)
-;;(global-set-key (kbd "M-x") 'smex-major-mode-commands)
+(setq ido-vertical-define-keys 'C-n-C-p-up-and-down) ;try without arrow
 
 ;; ivy - vertical M-x interaction
 (ivy-mode 1)
