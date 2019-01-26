@@ -12,17 +12,6 @@
 (global-set-key (kbd "C-x k") 'kill-current-buffer)
 
 
-;; 80 character limit for line
-(require 'fill-column-indicator)
-(setq fci-rule-column 80)
-
-;; declare own globalized minor mode
-(define-globalized-minor-mode global-fci-mode
-  fci-mode (lambda () (fci-mode 1)
-	     (setq fci-rule-color "cyan")
-	     ))
-(global-fci-mode 1)
-
 
 (defun move-line-up ()
   (interactive)

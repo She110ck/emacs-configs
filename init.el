@@ -46,6 +46,7 @@
 ;;(require 'fancy)
 (require 'init-diminish)
 
+;;(crosshairs-mode)
 
 
 ;;----------------------------------------------------------------------------
@@ -55,13 +56,17 @@
 (setq custom-file (concat user-emacs-directory "settings/custom.el"))
 (load custom-file 'noerror)
 
+(if (not (display-graphic-p))
+    (add-to-list 'default-frame-alist '(background-color . "#"))
+  )
+;;(set-background-color "#1b1c1d") ; custom change
 
 ;;; TODO list
 ;; - terminal config
 ;; - GUI config
 ;; - tramp config
 ;; - drag stuff mode
-;;
+;; - crosshairs
 ;; writer config (org mode blogging)
 ;; organizer config (org mode task management)
 ;; other features

@@ -59,7 +59,7 @@
 ;; ivy - vertical M-x interaction
 (ivy-mode 1)
 
-;; not close when you delete searchline
+;; not close when you delete search line
 (setq ivy-on-del-error-function nil)
 
 ;; swiper - search interaction
@@ -74,13 +74,6 @@
 (require 'powerline)
 (powerline-default-theme)
 (setq powerline-default-separator 'utf-8)
-
-;; highlight current line
-(global-hl-line-mode 1)
-(set-face-background 'highlight "#454035") ;"#008b8b") ;"#2f4f4f") ;
-;;(set-face-background 'highlight "#222") ;;;;;
-;;(set-face-foreground 'highlight "cyan")
-;;(set-face-underline-p 'highlight t)
 
 (provide 'init-extensions)
 
