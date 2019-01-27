@@ -14,6 +14,22 @@
 (require 'smartparens-config)
 (smartparens-global-mode)
 
+;; agressive indent
+(require 'aggressive-indent)
+(global-aggressive-indent-mode 1)
+
+;; move region,line or word with M-<up>, M-<down>, M-<left>, M-<right>
+(drag-stuff-global-mode)
+(drag-stuff-define-keys)
+
+;; VCS interface
+(require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
+
+;; syntax checker
+(require 'flycheck)
+(global-flycheck-mode)
+
 ;; bookmark jumps
 (require 'bookmark)
 
@@ -25,30 +41,18 @@
 (global-set-key (kbd "C-c j") 'bookmark-jump)
 (global-set-key (kbd "<f3>") 'bookmark-bmenu-list)
 
-;; VCS interface
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
-
-;; navigation. meh, not much useful
-(require 'neotree)
-(global-set-key (kbd "<f8>") 'neotree-toggle)
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-
 ;; window navigation
 (require 'ace-window)
 (global-set-key (kbd "M-p") 'ace-window)
-
-;; agressive indent
-(require 'aggressive-indent)
-(global-aggressive-indent-mode 1)
 
 ;; which key
 (require 'which-key)
 (which-key-mode)
 
-;; syntax checker
-(require 'flycheck)
-(global-flycheck-mode)
+;; navigation. meh, not much useful
+(require 'neotree)
+(global-set-key (kbd "<f8>") 'neotree-toggle)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;; C-x C-f interaction
 (ido-mode 1)

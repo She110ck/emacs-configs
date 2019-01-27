@@ -35,7 +35,8 @@
 (global-hl-line-mode 1)
 
 (if (display-graphic-p)
-    (set-face-background 'hl-line "#454035")
+    ;;    (set-face-background 'hl-line "#454035")
+    ()
   (set-face-underline 'hl-line t)
   )
 

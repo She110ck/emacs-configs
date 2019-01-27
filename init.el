@@ -3,7 +3,7 @@
 ;; Free for use
 ;; Author: she110ck<admin@she110ck.com>
 ;; Created: 2018-12-16
-;; Version: 0.1.1
+;; Version: 0.2.1
 ;; Homepage: https://github.com/She110ck/emacs-configs
 
 ;;; Commentary:
@@ -46,8 +46,6 @@
 ;;(require 'fancy)
 (require 'init-diminish)
 
-;;(crosshairs-mode)
-
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
@@ -56,6 +54,7 @@
 (setq custom-file (concat user-emacs-directory "settings/custom.el"))
 (load custom-file 'noerror)
 
+;; for transparent terminal
 (if (not (display-graphic-p))
     (add-to-list 'default-frame-alist '(background-color . "#"))
   )
@@ -65,12 +64,9 @@
 ;; - terminal config
 ;; - GUI config
 ;; - tramp config
-;; - drag stuff mode
-;; - crosshairs
+;;
 ;; writer config (org mode blogging)
 ;; organizer config (org mode task management)
 ;; other features
-
-
 
 ;;; init.el ends here
