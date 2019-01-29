@@ -37,6 +37,7 @@
 			    undo-tree
 			    color-theme-modern
 			    org-bullets
+                            expand-region
 			    ))
 
 ;; install packages automatically, elisp
@@ -78,6 +79,7 @@
 
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; always use spaces instead of tab characters
 (setq-default indent-tabs-mode nil)
@@ -109,8 +111,17 @@
 ;; numerize lines
 (global-linum-mode 1)
 
+;; cursor blink off
+(blink-cursor-mode 0)
+(when (display-graphic-p)
+  (setq-default cursor-type 'box))
+(setq x-stretch-cursor 1)
+
 ;; when you type marked area replaces
 (delete-selection-mode 1)
+
+(setq dired-listing-switches "-alh")
+(setq dired-recursive-deletes  +1)
 
 
 ;; keep open files open across sessions

@@ -18,6 +18,10 @@
 (require 'aggressive-indent)
 (global-aggressive-indent-mode 1)
 
+;; semancit selection region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;; move region,line or word with M-<up>, M-<down>, M-<left>, M-<right>
 (drag-stuff-global-mode)
 (drag-stuff-define-keys)
@@ -29,6 +33,38 @@
 ;; syntax checker
 (require 'flycheck)
 (global-flycheck-mode)
+
+;; region hide/show
+(defvar hs-special-modes-alist
+  (mapcar 'purecopy
+          '((emacs-lisp- "(" ")" nil)
+            (java-mode "{" "}" "/[*/]" nil nil)
+            (js-mode "{" "}" "/[*/]" nil)
+            (css-mode "{" "}" "/[*/]" nil)
+            )))
+
+(require 'hideshow)
+
+(global-set-key (kbd "<f9>") 'hs-toggle-hiding)
+(global-set-key (kbd "C-<f9>") 'hs-hide-all)
+(global-set-key (kbd "C-S-<f9>") 'hs-show-all)
+
+(defun hs-hook ()
+  (hs-minor-mode))
+
+(add-hook 'lisp-mode-hook 'hs-hook)
+(add-hook 'css-mode-hook 'hs-hook)
+(add-hook 'emacs-lisp-mode-hook 'hs-hook)
+(add-hook 'java-mode-hook 'hs-hook)
+(add-hook 'js-mode-hook 'hs-hook)
+
+;; built-in, buffer select promt
+(require 'bs)
+(setq bs-configurations
+      '(("files" "^\\*scratch\\*" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
+
+(global-set-key (kbd "<f2>") 'bs-show)
+
 
 ;; bookmark jumps
 (require 'bookmark)

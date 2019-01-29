@@ -3,7 +3,7 @@
 ;; Free for use
 ;; Author: she110ck<admin@she110ck.com>
 ;; Created: 2018-12-16
-;; Version: 0.2.1
+;; Version: 0.9.1
 ;; Homepage: https://github.com/She110ck/emacs-configs
 
 ;;; Commentary:
@@ -11,6 +11,8 @@
 ;; Actually I don't use Emacs every day, so can't be sure about usability.
 ;; Soma parts of my config very popular, but I don't get it yet.
 ;;
+;;
+;; for disable caps lock use: setxkbmap -option 'ctrl:nocaps'
 ;;
 ;;; Code:
 
@@ -38,11 +40,11 @@
 
 (require 'base)
 (require 'hist-settings)
-(require 'org-settings)
 (require 'init-extensions)
 (require 'init-autocomplete)
 (require 'functions)
 (require 'theme-settings)
+(require 'org-settings)
 ;;(require 'fancy)
 (require 'init-diminish)
 
@@ -60,10 +62,17 @@
   )
 ;;(set-background-color "#1b1c1d") ; custom change
 
+
+;;----------------------------------------------------------------------------
+;; TRAMP and editing files over SSH on windows
+;;----------------------------------------------------------------------------
+(setq tramp-default-method "ssh")
+(when (eq system-type 'windows-nt)
+  (setq tramp-default-method "plink")
+  (setq tramp-auto-save-directory "c:\\emacs.local"))
+
+
 ;;; TODO list
-;; - terminal config
-;; - GUI config
-;; - tramp config
 ;;
 ;; writer config (org mode blogging)
 ;; organizer config (org mode task management)

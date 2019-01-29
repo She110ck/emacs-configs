@@ -18,7 +18,7 @@
 (diminish 'which-key-mode nil)
 (diminish 'undo-tree-mode " ↺")
 (diminish 'visual-line-mode nil)
-
+(diminish 'drag-stuff-mode " ⥮")
 (provide 'init-diminish)
 
 ;;; init-diminish.el ends here
