@@ -3,7 +3,7 @@
 ;; Free for use
 ;; Author: she110ck<admin@she110ck.com>
 ;; Created: 2018-12-16
-;; Version: 0.9.1
+;; Version: 0.9.2
 ;; Homepage: https://github.com/She110ck/emacs-configs
 
 ;;; Commentary:
@@ -68,8 +68,7 @@
 ;;----------------------------------------------------------------------------
 (setq tramp-default-method "ssh")
 (when (eq system-type 'windows-nt)
-  (setq tramp-default-method "plink")
-  (setq tramp-auto-save-directory "c:\\emacs.local"))
+  (setq tramp-default-method "plink"))
 
 
 ;;; TODO list

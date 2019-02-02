@@ -28,7 +28,7 @@
 (setq ido-save-directory-list-file "~/.emacs.local/ido/ido.hist")
 
 ;; tramp history
-(setq tramp-histfile-override "~/.emacs.local/tramp")
+(setq tramp-histfile-override "/dev/null")
 
 (provide 'hist-settings)
 ;;; hist-settings ends here
