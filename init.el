@@ -45,6 +45,7 @@
 (require 'functions)
 (require 'theme-settings)
 (require 'org-settings)
+(require 'init-eshell)
 ;;(require 'fancy)
 (require 'init-diminish)
 

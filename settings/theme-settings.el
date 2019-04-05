@@ -37,7 +37,8 @@
 (if (display-graphic-p)
     ;;    (set-face-background 'hl-line "#454035")
     ()
-  (set-face-underline 'hl-line t)
+  (progn (set-face-underline 'hl-line t)
+         (set-face-background 'hl-line "#"))
   )
 
 ;;"#008b8b") ;"#2f4f4f") ;
@@ -45,27 +46,21 @@
 ;;(set-face-foreground 'highlight "cyan")
 ;;(set-face-underline-p 'highlight t)
 
+;;----------------------------------------------------------------------------
+;; general customization for all programming languages
+;;----------------------------------------------------------------------------
+(defun my/programming-mode()
+  (require 'whitespace-cleanup-mode)
+  (setq whitespace-cleanup-mode-only-if-initially-clean nil)
+  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face lines-tail))
+  (global-whitespace-mode)
+  (global-whitespace-cleanup-mode)
+  (linum-mode))
 
-(add-hook 'emacs-lisp-mode-hook (lambda ()
-                                  (require 'fill-column-indicator)
-                                  (setq fci-rule-column 80)
-                                  (setq fci-rule-color "cyan")
-                                  (fci-mode 1)
-                                  ))
 
-;; highlight current column
-;; !!hurts eyes!!
-;;(require 'vline)
-;;(set-face-background 'vline "#454035")
-;;(vline-global-mode 1) ;also performance problems
-
-;; declare own globalized minor mode
-;;(define-globalized-minor-mode global-fci-mode
-;;  fci-mode (lambda () (fci-mode 1)
-;;	     (setq fci-rule-color "cyan")
-;;	     ))
-;;(global-fci-mode 1)
-
+(add-hook 'emacs-lisp-mode-hook 'my/programming-mode)
+(add-hook 'python-mode-hook 'my/programming-mode)
 
 (provide 'theme-settings)
 

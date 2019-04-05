@@ -62,9 +62,8 @@
 (require 'bs)
 (setq bs-configurations
       '(("files" "^\\*scratch\\*" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
-
+;; quit with q
 (global-set-key (kbd "<f2>") 'bs-show)
-
 
 ;; bookmark jumps
 (require 'bookmark)

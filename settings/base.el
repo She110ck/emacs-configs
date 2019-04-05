@@ -13,32 +13,33 @@
 
 ;; adding all repo once
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/")
-	     '("org" . "https://orgmode.org/elpa/"))
+             '("melpa-stable" . "https://stable.melpa.org/packages/")
+             '("org" . "https://orgmode.org/elpa/"))
 
 (package-initialize)
 
 ;; Required package list(needs check)
 (defvar required-packages '(smartparents
-			    smex
-			    flycheck
-			    auto-complete
-			    aggressive-indent
-			    fill-column-indicator
-			    magit
-			    neotree
-			    swiper
-			    ido-vertical-mode
-			    projectile
-			    all-the-icons
-			    powerline
-			    which-key
-			    ace-window
-			    undo-tree
-			    color-theme-modern
-			    org-bullets
+                            smex
+                            flycheck
+                            auto-complete
+                            aggressive-indent
+                            fill-column-indicator
+                            magit
+                            neotree
+                            swiper
+                            ido-vertical-mode
+                            projectile
+                            all-the-icons
+                            powerline
+                            which-key
+                            ace-window
+                            undo-tree
+                            color-theme-modern
+                            org-bullets
                             expand-region
-			    ))
+                            whitespace-cleanup-mode
+                            ))
 
 ;; install packages automatically, elisp
 ;;(dolist (p required-packages)
@@ -109,10 +110,8 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; numerize lines
-(global-linum-mode 1)
+;;(global-linum-mode 1) ; customized
 
-;; cursor blink off
-(blink-cursor-mode 0)
 (when (display-graphic-p)
   (setq-default cursor-type 'box))
 (setq x-stretch-cursor 1)
