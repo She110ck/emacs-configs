@@ -11,6 +11,8 @@
 ;; Actually I don't use Emacs every day, so can't be sure about usability.
 ;; Soma parts of my config very popular, but I don't get it yet.
 ;;
+;; Also, I coud be use 'literate programming' or 'use-package' for configs.
+;; But, meh, I choosed hard way. Maybe, some day everything will change...
 ;;
 ;; for disable caps lock use: setxkbmap -option 'ctrl:nocaps'
 ;;
