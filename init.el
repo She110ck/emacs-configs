@@ -81,3 +81,4 @@
 ;; other features
 
 ;;; init.el ends here
+(put 'scroll-left 'disabled nil)

@@ -40,7 +40,7 @@
  '(fci-rule-color "#373b41")
  '(package-selected-packages
    (quote
-    (whitespace-cleanup-mode expand-region drag-stuff which-key undo-tree swiper smex smartparens projectile powerline packed org-bullets nyan-mode neotree magit ido-vertical-mode htmlize gotham-theme flycheck diminish darcula-theme color-theme-sanityinc-tomorrow color-theme-modern auto-complete all-the-icons aggressive-indent ace-window)))
+    (flycheck-yamllint yaml-mode go-mode whitespace-cleanup-mode expand-region drag-stuff which-key undo-tree swiper smex smartparens projectile powerline packed org-bullets nyan-mode neotree magit ido-vertical-mode htmlize gotham-theme flycheck diminish darcula-theme color-theme-sanityinc-tomorrow color-theme-modern auto-complete all-the-icons aggressive-indent ace-window)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
